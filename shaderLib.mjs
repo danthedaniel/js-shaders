@@ -1,4 +1,4 @@
-const sumReducer = (sum, dim) => sum + dim;
+const sumReducer = (sum, x) => sum + x;
 
 const sin = Math.sin,
   cos = Math.cos,
