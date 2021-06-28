@@ -9,7 +9,7 @@ CPU rendered ASCII art shader writing tool with hot reloading.
 
 ## Console Shots
 
-`marching.mjs`:
+`node render.mjs ./marching.mjs`:
 
 ```
 Loaded successfully!
@@ -35,7 +35,7 @@ Loaded successfully!
                             &&&&&&&
 ```
 
-`spiral.mjs`:
+`node render.mjs ./spiral.mjs`:
 
 ```
 Reloaded successfully!
