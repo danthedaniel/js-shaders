@@ -78,7 +78,7 @@ const MAX_DISTANCE = 10;
 const HIT_DISTANCE = 0.001;
 
 /**
- * Perform ray matching.
+ * Perform ray marching.
  * @param source {[number, number, number]}
  * @param direction {[number, number, number]}
  * @param time {number}
