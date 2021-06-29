@@ -1,8 +1,10 @@
-import { add, mul, sub, normalize } from "./shaderLib.mjs";
+import { add, mul, normalize } from "./shaderLib.mjs";
 
 export const intersectSDF = (a, b) => Math.max(a, b);
 export const subtractSDF = (a, b) => Math.max(a, -b);
 export const unionSDF = (a, b) => Math.min(a, b);
+
+const STEP = 0.001;
 
 /**
  * Get the surface normal at a point.
@@ -11,14 +13,10 @@ export const unionSDF = (a, b) => Math.min(a, b);
  * @returns {[number, number, number]}
  */
 const normal = (sceneSDF, point) => {
-  const step = 0.001;
-
-  const gradientX =
-    sceneSDF(add(point, [step, 0, 0])) - sceneSDF(sub(point, [step, 0, 0]));
-  const gradientY =
-    sceneSDF(add(point, [0, step, 0])) - sceneSDF(sub(point, [0, step, 0]));
-  const gradientZ =
-    sceneSDF(add(point, [0, 0, step])) - sceneSDF(sub(point, [0, 0, step]));
+  const gradient0 = sceneSDF(point);
+  const gradientX = gradient0 - sceneSDF(add(point, [STEP, 0, 0]));
+  const gradientY = gradient0 - sceneSDF(add(point, [0, STEP, 0]));
+  const gradientZ = gradient0 - sceneSDF(add(point, [0, 0, STEP]));
 
   return normalize([gradientX, gradientY, gradientZ]);
 };

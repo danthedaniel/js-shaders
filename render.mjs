@@ -166,4 +166,7 @@ const main = async () => {
   }
 };
 
-main();
+main().catch((e) => {
+  console.error(e.toString());
+  process.exit(1);
+});
