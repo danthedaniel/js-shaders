@@ -1,0 +1,4 @@
+#!/bin/bash
+
+SHADER="$1"
+node render.mjs "$SHADER"

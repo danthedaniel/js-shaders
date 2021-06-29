@@ -103,11 +103,15 @@ const renderStatus = async (statusLine, width) => {
 };
 
 const main = async () => {
-  const [_node, _mjs, shaderPath, ..._rest] = process.argv;
+  let [_node, _mjs, shaderPath, ..._rest] = process.argv;
 
   if (!shaderPath) {
     console.error("Usage: node render.mjs <file.mjs>");
     return;
+  }
+
+  if (!shaderPath.startsWith("./") && !shaderPath.startsWith("/")) {
+    shaderPath = `./${shaderPath}`;
   }
 
   let width = process.stdout.columns ?? 80;
