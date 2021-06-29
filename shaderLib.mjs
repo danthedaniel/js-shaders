@@ -2,8 +2,7 @@ const sumReducer = (sum, x) => sum + x;
 
 const sin = Math.sin,
   cos = Math.cos,
-  sqrt = Math.sqrt,
-  pow = Math.pow;
+  sqrt = Math.sqrt;
 
 /**
  * Cartesian distance between two points.
@@ -17,7 +16,7 @@ export const distance = (point0, point1) => {
 
   return sqrt(
     point0
-      .map((dim0, index) => pow(point1[index] - dim0, 2))
+      .map((dim0, index) => Math.pow(point1[index] - dim0, 2))
       .reduce(sumReducer, 0)
   );
 };
@@ -72,8 +71,15 @@ export const max = (vector0, vector1) =>
 export const min = (vector0, vector1) =>
   vectorApply(vector0, vector1, (a, b) => (a < b ? a : b));
 
+export const dot = (vector0, vector1) =>
+  vectorApply(vector0, vector1, (a, b) => a * b).reduce(sumReducer, 0);
+
 export const abs = (vector) => {
   return vector.map((dim) => Math.abs(dim));
+};
+
+export const pow = (vector, power) => {
+  return vector.map((dim) => Math.pow(dim, power));
 };
 
 /**

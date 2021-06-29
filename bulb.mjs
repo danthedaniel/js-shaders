@@ -2,8 +2,13 @@ import {
   distance,
   dot,
   magnitude,
+  normalize,
   rotate3DX,
   rotate3DY,
+  add,
+  sub,
+  abs,
+  mul,
 } from "./shaderLib.mjs";
 import { unionSDF, subtractSDF, rayMarch } from "./marchLib.mjs";
 
