@@ -9,7 +9,7 @@ CPU rendered ASCII art shader writing tool with hot reloading.
 
 ## Console Shots
 
-`node render.mjs ./marching.mjs`:
+`node render.mjs ./geo.mjs`:
 
 ```
 Loaded successfully!
