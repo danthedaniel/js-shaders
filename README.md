@@ -3,6 +3,8 @@ JS Shaders
 
 CPU rendered ASCII art shader writing tool with hot reloading.
 
+Recording: https://youtu.be/4bbClPPAkQI
+
 ## Usage
 
 `node render.mjs <file.mjs>`
