@@ -23,30 +23,6 @@ const cos = Math.cos,
 let globalTime = 0;
 
 /**
- * Signed-distance-function for a sphere.
- * @param point {[number, number, number]}
- * @param center {[number, number, number]}
- * @param radius {number}
- * @returns {number}
- */
-const sphereSDF = (point, center, radius) => {
-  return distance(point, center) - radius;
-};
-
-/**
- * Signed-distance-function for a box.
- * @param point {[number, number, number]}
- * @param size {[number, number, number]}
- * @returns {number}
- */
-const boxSDF = (point, size) => {
-  const center = [0.0, 0.0, 0.0];
-  const q = sub(abs(point), size);
-
-  return distance(max(q, 0.0), center) + Math.min(Math.max(...q), 0.0);
-};
-
-/**
  * Signed-distance-function for a Mandelbulb.
  * @param point {[number, number, number]}
  * @returns {number}
@@ -84,14 +60,6 @@ const sceneSDF = (point) => {
   );
 
   return bulbSDF(rotatedPoint);
-
-  return unionSDF(
-    subtractSDF(
-      boxSDF(rotatedPoint, [0.9, 0.9, 0.9]),
-      sphereSDF(point, [0, 0, 0], 1.1)
-    ),
-    sphereSDF(rotatedPoint, [Math.sin(globalTime) * 2.5, 0, 0], 0.3)
-  );
 };
 
 export const fragment = (x, y, time) => {
