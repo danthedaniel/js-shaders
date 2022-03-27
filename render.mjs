@@ -3,7 +3,7 @@ import fs from "fs";
 
 /**
  * Promisify a function from the `readline` package.
- * @param func {(stream: NodeJS.WritableStream, ...args: any[], cb?: () => void) => void}
+ * @param func {(stream: NodeJS.WritableStream, ...args: any[]) => void}
  * @param args {any[]}
  * @returns
  */
