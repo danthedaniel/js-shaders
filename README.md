@@ -13,8 +13,8 @@ First create a .mjs file that exports a function named `fragment`. The module sh
 interface FragmentModule {
   /**
    * Return a mono-chromatic value for a pixel and time index:
-   * @param x    The x-coordinate of the pixel.
-   * @param y    The y-coordinate of the pixel.
+   * @param x    The x-coordinate of the pixel (In the range 0..1)
+   * @param y    The y-coordinate of the pixel (In the range 0..1)
    * @param time The number of seconds since the start of program execution.
    * @returns    The lightness/darkness of the pixel.
    */
